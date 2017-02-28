@@ -19,6 +19,9 @@
   从 `dev-serv/example` 中复制 `_dev-serv.json` 到项目根目录
 
   配置项说明请参考 [src/dev-serv.js#DEV_SERV_CONFIG](https://github.com/ufologist/dev-serv/blob/master/src/dev-serv.js), 一般仅需要配置 `backend` 参数即可
+* 增加 [puer-mock](https://github.com/ufologist/puer-mock) 接口配置文件
+
+  请参考 [puer-mock 使用文档](https://github.com/ufologist/puer-mock#usage), 复制 `node_modules/puer-mock/example` 下面的所有文件到项目根目录
 * 配置项目的 `package.json` 脚本
 
   ```json
