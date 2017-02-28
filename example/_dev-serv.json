@@ -1,0 +1,11 @@
+{
+    "staticServer": {
+        "port": 8000,
+        "apiPath": "/api"
+    },
+    "mockServer": {
+        "port": 8001,
+        "addon": "_mockserver.js",
+        "backend": "http://localhost:18520"
+    }
+}
