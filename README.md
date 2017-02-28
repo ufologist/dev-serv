@@ -9,7 +9,7 @@
   
   从 `dev-serv/example` 中复制 `_dev-serv.json` 到项目根目录
 
-  配置项说明请参考 [src/dev-serv.js#DEV_SERV_CONFIG](https://github.com/ufologist/dev-serv/blob/master/src/dev-serv.js)
+  配置项说明请参考 [src/dev-serv.js#DEV_SERV_CONFIG](https://github.com/ufologist/dev-serv/blob/master/src/dev-serv.js), 一般仅需要配置 `backend` 参数即可
 * 配置项目的 `package.json` 脚本
 
   ```json
