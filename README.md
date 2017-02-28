@@ -40,7 +40,45 @@
 即形成下面的结构
 
 ```
-[Static Server(express)] ==http-proxy-middleware==> Mock API Server(puer-mock) ==proxy==> API Server(Backend)
-          +
-[Auto Reload(puer-connect-middleware)]
+【静态服务器】                                                    【Mock API Server】
+http://localhost:8000                                            http://localhost:8001
+┏━━━━━━━━━━━━━━━━━━┓                            ┏━━━━━━━━━━━━━━━━━━┓ 
+┃                                 ┃                            ┃                                 ┃
+┃ http://localhost:8000/a.html    ┃                            ┃ Mock API Route Config           ┃
+┃ http://localhost:8000/a.css     ┃                            ┃ http://localhost:8001/user/list ┃
+┃                                 ┃                            ┃                                 ┃
+┃ http://localhost:8000/api       ┃ --http-proxy-middleware--> ┃      Mock API Server(puer-mock) ┃
+┃                                 ┃                            ┗━━━━━━━━━━━━━━━━━━┛
+┃          Static Server(express) ┃                                           
+┃          + Auto Reload          ┃                                           ┃
+┃       (puer-connect-middleware) ┃                                          proxy
+┗━━━━━━━━━━━━━━━━━━┛                                           ┃
+                                                                                v
+
+                                                                 【后端真实接口服务器】
+                                                                 http://localhost:18520
+                                                                 ┏━━━━━━━━━━━━━━━━━━┓
+                                                                 ┃                                 ┃
+                                                                 ┃http://localhost:18520/user/list ┃
+                                                                 ┃                                 ┃
+                                                                 ┃             API Server(Backend) ┃
+                                                                 ┗━━━━━━━━━━━━━━━━━━┛
+```
+
+* 通过 `:8000` 端口服务静态文件
+* 通过 `:8000/api` 代理在 `:8001` 端口的后端接口
+  * puer-mock 在 `:8001` 端口启动 mock 接口服务
+  * puer-mock 同时代理 `:18520` 端口的后端真实接口, 方便开发时可以随时切换成真实接口
+
+因此页面上面所有接口的根路径应该为 `:8000/api`
+
+例如:
+
+```javascript
+// 通过代理调用后端接口, 会去请求 puer-mock 的服务
+// 因此实际上请求会发给 http://localhost:8001/user/list
+//
+// 如果 puer-mock 上禁用了这个 mock 接口, 由于 puer-mock 同时代理了后端真实接口
+// 因此实际上请求会发给 http://localhost:18520/user/list
+$.get('http://localhost:8000/api/user/list');
 ```
