@@ -28,7 +28,7 @@
 * Mock API Server
 * 代理后端真实接口(最好 Mock API Server 能够灵活切换到真实接口或者使用 Mock 接口)
 
-即需要集 static server + mock server + proxy server + live-reload 于一身
+即需要集 `static server + mock server + proxy server + live-reload` 于一身
 
 ## 实现方案
 
