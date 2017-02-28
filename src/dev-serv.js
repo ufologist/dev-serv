@@ -97,14 +97,14 @@ var devServConfigFile = '_dev-serv.json';
 
 var DEV_SERV_CONFIG = {
     staticServer: {
-        dir: process.cwd(),
-        port: 8000,
-        apiPath: '/api'
+        dir: process.cwd(), // 静态资源文件的根目录(默认为命令执行的目录)
+        port: 8000,         // 静态服务器的端口
+        apiPath: '/api'     // 后端接口的根路径
     },
     mockServer: {
-        port: 8001,
-        addon: '_mockserver.js',
-        backend: 'http://localhost:18520' // mock server 代理真实的后端接口, 方便切换
+        port: 8001,         // mock 服务器的端口
+        addon: '_mockserver.js', // puer 的 mock 功能
+        backend: 'http://localhost:18520' // puer 的 proxy 功能, 代理真实的后端接口, 方便切换
     }
 }
 
