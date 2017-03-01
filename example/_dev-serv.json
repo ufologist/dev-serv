@@ -1,7 +1,7 @@
 {
     "staticServer": {
         "port": 8000,
-        "apiPath": "/api"
+        "apiPath": "/api/"
     },
     "mockServer": {
         "port": 8001,

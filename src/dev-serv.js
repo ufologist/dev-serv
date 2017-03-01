@@ -68,7 +68,7 @@ function proxyMockServer() {
         changeOrigin: true,
         // https://webpack.js.org/configuration/dev-server/#devserver-proxy
         // If you don't want /api to be passed along, we need to rewrite the path:
-        // {'^/api': ''}
+        // {'^/api/': ''}
         pathRewrite: devServConfig.staticServer.pathRewrite
     }));
 }
@@ -99,7 +99,7 @@ var DEV_SERV_CONFIG = {
     staticServer: {
         dir: process.cwd(), // 静态资源文件的根目录(默认为命令执行的目录)
         port: 8000,         // 静态服务器的端口
-        apiPath: '/api'     // 后端接口的根路径
+        apiPath: '/api/'    // 后端接口的根路径, 注意以斜杠结尾, 否则会匹配到 /api123 这样的路径
     },
     mockServer: {
         port: 8001,         // mock 服务器的端口

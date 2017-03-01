@@ -1,6 +1,6 @@
 {
   "name": "dev-serv",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "开发时使用的专属服务器",
   "main": "src/dev-serv.js",
   "scripts": {
