@@ -76,8 +76,7 @@ function proxyMockServer() {
 // 使用 puer 中间件来做文件修改后浏览器自动刷新
 function liveReload() {
     app.use(puer.connect(app, server, {
-        dir: devServConfig.staticServer.dir,
-        ignored: /(\/|^)\..*|node_modules/
+        dir: devServConfig.staticServer.dir
     }));
 }
 
