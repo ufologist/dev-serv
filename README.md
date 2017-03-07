@@ -9,7 +9,7 @@
 [changelog-image]: https://img.shields.io/badge/CHANGE-LOG-blue.svg?style=flat-square
 [changelog-url]: https://github.com/ufologist/dev-serv/blob/master/CHANGELOG.md
 
-开发时使用的专属服务器
+开发时使用的专属服务器. **后来发现通过扩展 puer 能够更好的实现(不需要开两个服务了), 因此已经转投到[puer-proxy](https://github.com/ufologist/puer-proxy)**
 
 * 安装 `dev-serv` 模块
 
